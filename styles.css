@@ -103,3 +103,22 @@ ul#stats li span {
   position: relative;
   z-index: 1;
 }
+
+.chart-wrap { text-align: center; margin: 10px 0 8px; }
+.chart-canvas {
+  width: 260px;
+  height: 260px;
+  display: block;
+  margin: 6px auto 6px;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* Legend rows */
+.chart-legend { display:flex; flex-direction: column; gap:6px; align-items:flex-start; margin:6px auto; max-width:260px; }
+.legend-row { display:flex; align-items:center; gap:8px; font-size:13px; color:#333; }
+.legend-color { width:14px; height:14px; border-radius:3px; display:inline-block; }
+.legend-text { font-size:13px; }
+
+/* Ensure list items still look good */
+ul#stats li { position: relative; overflow: hidden; }

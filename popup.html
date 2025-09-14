@@ -1,18 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Website Time Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Time Tracker</h1>
+  <h1>Website Spent Time Tracker</h1>
+
   <div class="button-container">
-  <button id="refresh">Refresh</button>
-  <button id="reset">Reset</button>
-  <button id="toggle">Pause</button>
-  <button id="export">Export States</button>
+    <button id="refresh">Refresh</button>
+    <button id="reset">Reset</button>
+    <button id="toggle">Pause</button>
+    <button id="export">Export CSV</button>
   </div>
+
+  <div class="chart-wrap">
+    <h2>Usage Pie Chart</h2>
+    <canvas id="usageChart" class="chart-canvas"></canvas>
+    <div id="legend" class="chart-legend"></div>
+  </div>
+
   <ul id="stats"></ul>
+
   <script src="popup.js"></script>
 </body>
 </html>

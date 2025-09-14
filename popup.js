@@ -12,18 +12,44 @@ function formatTime(ms) {
   const secs = totalSec % 60;
   return `${mins}m ${secs}s`;
 }
-
 function loadData() {
   chrome.runtime.sendMessage({ action: "getData" }, usage => {
     statsEl.innerHTML = "";
     const entries = Object.entries(usage).sort((a, b) => b[1] - a[1]);
+
+    if (entries.length === 0) return;
+
+    const totalTime = entries.reduce((sum, [_, time]) => sum + time, 0);
+    const maxTime = Math.max(...entries.map(([_, time]) => time));
+
     for (const [domain, time] of entries) {
       const li = document.createElement("li");
-      li.textContent = `${domain}: ${formatTime(time)}`;
+
+      // Domain and time text
+      const textSpan = document.createElement("span");
+      const percentOfTotal = ((time / totalTime) * 100).toFixed(1);
+      textSpan.textContent = `${domain}: ${formatTime(time)} (${percentOfTotal}%)`;
+
+      // Progress bar
+      const bar = document.createElement("div");
+      bar.className = "progress-bar";
+      const percentWidth = (time / maxTime) * 100;
+      bar.style.width = percentWidth + "%";
+
+      // Color coding
+      const minutes = time / 60000;
+      if (minutes > 60) bar.style.background = "rgba(244, 67, 54, 0.4)"; // red
+      else if (minutes >= 30) bar.style.background = "rgba(255, 193, 7, 0.4)"; // yellow
+      else bar.style.background = "rgba(76, 175, 80, 0.4)"; // green
+
+      li.appendChild(textSpan);
+      li.appendChild(bar);
       statsEl.appendChild(li);
     }
   });
 }
+
+
 
 // Refresh
 refreshBtn.addEventListener("click", loadData);

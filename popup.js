@@ -41,29 +41,26 @@ toggleBtn.addEventListener("click", () => {
   chrome.runtime.sendMessage({ action: "toggleTracking", enabled: tracking });
 });
 
-// Export CSV
+// Manual Export CSV
 exportBtn.addEventListener("click", () => {
-  chrome.runtime.sendMessage({ action: "getData" }, usage => {
-    if (!usage || Object.keys(usage).length === 0) {
+  chrome.runtime.sendMessage({ action: "generateCSV" }, result => {
+    if (!result || !result.csv) {
       alert("No data to export.");
       return;
     }
 
-    let csv = "Domain,Time (minutes)\n";
-    for (const [domain, time] of Object.entries(usage)) {
-      csv += `${domain},${(time / 60000).toFixed(2)}\n`;
-    }
-
-    const blob = new Blob([csv], { type: "text/csv" });
+    const blob = new Blob([result.csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "time-tracker.csv";
+    a.download = result.filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+
+    alert("CSV exported successfully!");
   });
 });
 

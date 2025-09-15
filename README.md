@@ -45,7 +45,7 @@ It also provides a **pie chart visualization** of your top 4 most visited websit
 ---
 
 ## 📥 Download
-- **Latest Release (ZIP)** → [Download Here]((https://github.com/mohd-ksr/web-time-tracker/archive/refs/tags/v1.0.zip))
+- **Latest Release (ZIP)** → [Download Here](https://github.com/mohd-ksr/web-time-tracker/archive/refs/tags/v1.0.zip)
 - Or clone the repo:
 ```bash
 

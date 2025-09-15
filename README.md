@@ -18,9 +18,9 @@ It also provides a **pie chart visualization** of your top 4 most visited websit
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/bar.png" alt="Bar" width="350"/>
-  <img src="screenshots/pie.png" alt="Pie Chart" width="350"/>
-  <img src="screenshots/list.png" alt="List" width="350"/>
+  <img src="screenshots/bar.png" alt="Bar" width="300"/>
+  <img src="screenshots/pie.png" alt="Pie Chart" width="250"/>
+  <img src="screenshots/list.png" alt="List" width="250"/>
 </p>
 
 ---
@@ -34,7 +34,7 @@ It also provides a **pie chart visualization** of your top 4 most visited websit
 ---
 
 ## 📦 Installation Guide (Unpacked Extension)
-1. Download the repository or [grab the ZIP] → [](https://github.com/mohd-ksr/web-time-tracker/releases/latest).  
+1. Download the repository or Clone the repository
 2. Extract the files to a folder on your computer.  
 3. Open your browser (Chrome/Brave).  
 4. Go to:  brave://extensions/(or chrome://extensions/ in Chrome)
@@ -45,7 +45,7 @@ It also provides a **pie chart visualization** of your top 4 most visited websit
 ---
 
 ## 📥 Download
-- **Latest Release (ZIP)** → [Download Here](https://github.com/mohd-ksr/web-time-tracker/releases/latest)
+- **Latest Release (ZIP)** → [Download Here]((https://github.com/mohd-ksr/web-time-tracker/archive/refs/tags/v1.0.zip))
 - Or clone the repo:
 ```bash
 
